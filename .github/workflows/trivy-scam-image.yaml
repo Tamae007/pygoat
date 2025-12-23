@@ -20,15 +20,15 @@ jobs:
       - name: Run Trivy Image scan
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          scan-type: "image"
-          scan-ref: "pygoat:latest"
+          #scan-type: "image"
+          image-ref: "pygoat:latest"
           severity: "CRITICAL,HIGH"
           format: "sarif"
           output: "trivy-scan.sarif"
           exit-code: "0"
-        env:
-          TRIVY_SKIP_DB_UPDATE: true
-          TRIVY_SKIP_JAVA_DB_UPDATE: true
+        # env:
+        #   TRIVY_SKIP_DB_UPDATE: true
+        #   TRIVY_SKIP_JAVA_DB_UPDATE: true
 
       - name: Download Trivy Scan Report Report
         uses: actions/upload-artifact@v4
